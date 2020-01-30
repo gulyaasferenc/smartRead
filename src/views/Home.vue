@@ -1,18 +1,24 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home bg-lightMountain">
+    <OpenPage/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import OpenPage from '@/components/OpenPage.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    OpenPage
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .logo {
+    margin: auto;
+    @apply border border-black rounded-lg
+  }
+</style>

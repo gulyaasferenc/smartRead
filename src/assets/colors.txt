@@ -1,0 +1,4 @@
+montain-green: #B4CA54
+fontain: #EBF2FC
+dark-montain: #3E480C
+light-montain: #C3CC71
