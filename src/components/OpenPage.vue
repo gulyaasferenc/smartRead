@@ -16,15 +16,18 @@
         </div>
       </div>
     </div>
+    <Content />
   </div>
 </template>
 
 <script>
 import WantToRead from '@/components/wanttoread/WantToRead'
+import Content from '@/components/Content/Content'
 export default {
   name: 'OpenPage',
   components: {
-    WantToRead
+    WantToRead,
+    Content
   },
   props: {
     msg: String
