@@ -1,5 +1,5 @@
 <template>
-  <div class="w-64 bg-none text-white text-center  rounded-br-lg absolute top-0 left-0 mt-10 z-10">
+  <div class="w-64 bg-none text-white text-center  rounded-br-lg absolute top-0 left-0 mt-10 z-30">
     <ul style="list-style-type:none;">
       <li @click="hideMenu()">
         Menu 1

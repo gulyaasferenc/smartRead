@@ -30,4 +30,20 @@ export default {
   background-color: #C3CC71
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(4, 0, 255);
+  border-radius: 10px;
+}
+
 </style>

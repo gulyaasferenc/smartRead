@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+import analyzer from '@/helpers/ContentAnalyzer'
 
 Vue.use(Vuex)
 
@@ -27,12 +29,19 @@ export default new Vuex.Store({
   actions: {
     async getLinkContent ({ commit }, payload) {
       commit('setGetContentStarted', true)
-      let contentResponse = await fetch(`${payload}`)
-      let content = await contentResponse.text()
-      console.log('CONTENT', content)
-      commit('setContent', content)
-      commit('setGetContentStarted', false)
-      commit('setContentReceived', true)
+      try {
+        const parser = new DOMParser()
+        let content = await axios.get(`${payload}`)
+        const doc = parser.parseFromString(content.data, 'text/html')
+        const setIt = analyzer(doc)
+        commit('setContent', setIt)
+      } catch (e) {
+        console.error(e.message)
+        commit('setContent', e)
+      } finally {
+        commit('setGetContentStarted', false)
+        commit('setContentReceived', true)
+      }
     }
   },
   modules: {
