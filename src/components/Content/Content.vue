@@ -14,7 +14,7 @@
           class="text-xs bg-gray-800 opacity-75 border border-lightMountain inline-block px-2 py-1 rounded mb-4"
         >
           <info-icon size="1.5x" class="inline-block mr-2"></info-icon> Mark the
-          sentences which should be kept for your extract!
+          sentences wich should be kept for your extract!
         </div>
 
         <div class="bg-darkMountain p-6 rounded overflow-auto" style="max-height: 95%;">
