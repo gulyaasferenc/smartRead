@@ -1,36 +1,45 @@
 <template>
-  <div class="open-page mt-4 h-full">
-    <div class="bg-lightMountain text-center">
-      <div class="my-4">
-        <h1>What would you like to do?</h1>
+  <div class="open-page h-full">
+    <div class="bg-gray-600 text-center h-full">
+      <div class="text-white text-4xl py-1">
+        <h1>Read it in a few mins!</h1>
       </div>
       <div class="md:flex lg:flex xl:flex mx-2">
         <div class="mycolumn xl:w-1/3 lg:w-1/3 md:w-1/3 ">
           <want-to-read class=""></want-to-read>
         </div>
         <div class="mycolumn xl:w-1/3 lg:w-1/3 md:w-1/3 ">
-          Some content
+          <want-to-check></want-to-check>
         </div>
          <div class="mycolumn xl:w-1/3 lg:w-1/3 md:w-1/3 ">
           Some content
         </div>
       </div>
     </div>
-    <Content />
+    <Content v-if="getContentStarted || contentReceived" />
   </div>
 </template>
 
 <script>
 import WantToRead from '@/components/wanttoread/WantToRead'
+import WantToCheck from '@/components/wanttocheck/WantToCheck'
 import Content from '@/components/Content/Content'
+import { mapState } from 'vuex'
 export default {
   name: 'OpenPage',
   components: {
     WantToRead,
-    Content
+    Content,
+    WantToCheck
   },
   props: {
     msg: String
+  },
+  computed: {
+    ...mapState({
+      getContentStarted: state => state.getContentStarted,
+      contentReceived: state => state.contentReceived
+    })
   }
 }
 </script>
@@ -38,14 +47,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .mycolumn {
-    min-height: 70vh;
+    min-height: 80vh;
     box-shadow: 0px 10px 32px 5px rgba(0,0,0,1);
-    @apply bg-greenMountain mx-2 rounded-lg my-10 p-4 opacity-75 cursor-pointer
-  }
-  .mycolumn:hover {
-    @apply opacity-100;
-  }
-  .mycolumn:active {
-    @apply opacity-100;
+    @apply bg-darkMountain mx-2 rounded-lg p-4 my-2
   }
 </style>

@@ -10,9 +10,18 @@ export default new Vuex.Store({
     showMenu: false,
     content: null,
     contentReceived: false,
-    getContentStarted: false
+    getContentStarted: false,
+    extracts: [],
+    smartStore: null
   },
   mutations: {
+    setSmartStore (state, value) {
+      state.smartStore = value
+    },
+    setExtracts (state, value) {
+      state.extracts = value
+      console.log(state.extracts)
+    },
     setShowMenu (state, value) {
       state.showMenu = value
     },
@@ -36,8 +45,8 @@ export default new Vuex.Store({
         const setIt = analyzer(doc)
         commit('setContent', setIt)
       } catch (e) {
-        console.error(e.message)
-        commit('setContent', e)
+        console.error('ERROR', e.message)
+        commit('setContent', e.message)
       } finally {
         commit('setGetContentStarted', false)
         commit('setContentReceived', true)

@@ -1,16 +1,21 @@
 <template>
-  <div>
-    <div class="py-10 rounded-lg cursor-pointer text-white">
-      <h1 class="mb-4">I WANT to Read some news!!</h1>
-      <p class="my-4">Paste the link here:</p>
-      <input class="bg-gray-600 hovershadow" type="text" v-model="linkText" />
-      <chevrons-right-icon
-        class="inline-block ml-1 cursor-pointer"
-        size="1.5x"
-        @click="getLinkContent(linkText)"
-      />
+  <div class="h-full">
+    <div class="py-10 rounded-lg cursor-pointer text-white h-full">
+      <div class="my-auto ">
+        <h1 class="mb-4">I WANT to Read some news!!</h1>
+        <p class="my-4">Paste the link here:</p>
+        <input
+          class="bg-gray-800 border border-gray-600 hovershadow rounded w-4/5 my-auto"
+          type="text"
+          v-model="linkText"
+        />
+        <chevrons-right-icon
+          class="inline-block ml-1 cursor-pointer"
+          size="1.5x"
+          @click="getLinkContent(linkText)"
+        />
+      </div>
     </div>
-
   </div>
 </template>
 
@@ -28,9 +33,7 @@ export default {
       linkText: ''
     }
   },
-  computed: {
-
-  },
+  computed: {},
   methods: {
     ...mapActions(['getLinkContent'])
   }

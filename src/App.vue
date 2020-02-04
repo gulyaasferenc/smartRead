@@ -1,5 +1,5 @@
 <template>
-  <div id="app bg-lightMountain h-screen">
+  <div id="app" class="bg-gray-600 min-h-screen">
     <div id="nav">
       <nav-bar></nav-bar>
     </div>
@@ -27,7 +27,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #C3CC71
 }
 
 /* width */
