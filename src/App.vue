@@ -28,6 +28,19 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+#nav {
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+button:focus {
+  outline: none
+}
+.content-shadow {
+  -webkit-box-shadow: 2px 11px 33px 27px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 11px 33px 27px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 11px 33px 27px rgba(0, 0, 0, 0.75);
+}
 
 /* width */
 ::-webkit-scrollbar {

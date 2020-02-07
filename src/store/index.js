@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import analyzer from '@/helpers/ContentAnalyzer'
+import { get, keys } from 'idb-keyval'
 
 Vue.use(Vuex)
 
@@ -12,9 +13,17 @@ export default new Vuex.Store({
     contentReceived: false,
     getContentStarted: false,
     extracts: [],
-    smartStore: null
+    smartStore: null,
+    getModal: false,
+    modalInput: null
   },
   mutations: {
+    setGetModal (state, value) {
+      state.getModal = value
+    },
+    setModalInput (state, value) {
+      state.modalInput = value
+    },
     setSmartStore (state, value) {
       state.smartStore = value
     },
@@ -51,6 +60,14 @@ export default new Vuex.Store({
         commit('setGetContentStarted', false)
         commit('setContentReceived', true)
       }
+    },
+    async getIdbContent ({ commit, state }) {
+      const extractionArray = []
+      const smartKeys = await keys(state.smartStore)
+      for (let x of smartKeys) {
+        extractionArray.push(await get(x, state.smartStore))
+      }
+      commit('setExtracts', extractionArray)
     }
   },
   modules: {

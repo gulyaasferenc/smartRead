@@ -2,7 +2,7 @@
   <div class="h-full">
     <div class="py-10 rounded-lg cursor-pointer text-white h-full">
       <div class="my-auto ">
-        <h1 class="mb-4">I WANT to Read some news!!</h1>
+        <h2 class="mb-4 text-xl">I WANT to Read some news!!</h2>
         <p class="my-4">Paste the link here:</p>
         <input
           class="bg-gray-800 border border-gray-600 hovershadow rounded w-4/5 my-auto"

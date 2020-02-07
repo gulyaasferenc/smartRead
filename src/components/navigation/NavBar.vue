@@ -5,7 +5,9 @@
         class="text-white cursor-pointer my-2"
         @click="changeShowMenu()"
       ></menu-icon>
-      <span class="text-white ml-4 my-2">Smart Reader</span>
+      <router-link class="text-white ml-4 my-2" to="/">
+        <span >Smart Reader</span>
+      </router-link>
     </div>
     <div v-if="showMenu">
       <my-menu></my-menu>
@@ -23,17 +25,18 @@ export default {
     MyMenu
   },
   data () {
-    return {
-
-    }
+    return {}
   },
   computed: {
-    showMenu () { return this.$store.state.showMenu }
+    showMenu () {
+      return this.$store.state.showMenu
+    }
   },
-  watch: {
-  },
+  watch: {},
   methods: {
-    changeShowMenu () { this.$store.commit('setShowMenu', !this.showMenu) }
+    changeShowMenu () {
+      this.$store.commit('setShowMenu', !this.showMenu)
+    }
   }
 }
 </script>

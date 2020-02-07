@@ -7,7 +7,7 @@
 <script>
 // @ is an alias to /src
 import OpenPage from '@/components/OpenPage.vue'
-import { Store, get, keys } from 'idb-keyval'
+import { Store } from 'idb-keyval'
 import { mapState } from 'vuex'
 
 export default {
@@ -17,12 +17,7 @@ export default {
   },
   async created () {
     this.$store.commit('setSmartStore', await new Store('smartDB', 'smartStore'))
-    const extractionArray = []
-    const smartKeys = await keys(this.smartStore)
-    for (let x of smartKeys) {
-      extractionArray.push(await get(x, this.smartStore))
-    }
-    this.$store.commit('setExtracts', extractionArray)
+    this.$store.dispatch('getIdbContent')
   },
   computed: {
     ...mapState({
