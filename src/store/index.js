@@ -54,7 +54,7 @@ export default new Vuex.Store({
         const setIt = analyzer(doc)
         commit('setContent', setIt)
       } catch (e) {
-        console.error('ERROR', e.message)
+        console.error('ERRORRRR', e.message)
         commit('setContent', e.message)
       } finally {
         commit('setGetContentStarted', false)
