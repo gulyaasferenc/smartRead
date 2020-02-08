@@ -6,7 +6,7 @@ module.exports = {
     themeColor: '#4DBA87',
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      swSrc: 'src/sw.js'
+      swSrc: 'src/service-worker.js'
     }
   }
 }
