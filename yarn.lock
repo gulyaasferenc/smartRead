@@ -1355,6 +1355,11 @@ ajv@^6.1.0, ajv@^6.10.2, ajv@^6.5.5, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+alertify@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/alertify/-/alertify-0.3.0.tgz#32ada3298ff4d91ace71f2746d70910a7bd08135"
+  integrity sha1-Mq2jKY/02RrOcfJ0bXCRCnvQgTU=
+
 alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
