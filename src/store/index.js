@@ -51,7 +51,8 @@ export default new Vuex.Store({
         const parser = new DOMParser()
         let content = await axios.get(`${payload}`)
         const doc = parser.parseFromString(content.data, 'text/html')
-        const setIt = analyzer(doc)
+        const setIt = analyzer.contentMaker(doc)
+        console.log(analyzer.statisticMaker(doc, setIt))
         commit('setContent', setIt)
       } catch (e) {
         console.error('ERRORRRR', e.message)

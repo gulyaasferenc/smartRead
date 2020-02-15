@@ -114,8 +114,8 @@ export default {
   },
   computed: {
     ...mapState({
-      content: state => state.content[0],
-      images: state => state.content[1],
+      content: state => state.content.elements,
+      images: state => state.content.images,
       contentReceived: state => state.contentReceived,
       getContentStarted: state => state.getContentStarted,
       smartStore: state => state.smartStore
@@ -170,7 +170,7 @@ export default {
   -webkit-box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 1);
   -moz-box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 1);
   box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 1);
-  @apply rounded-full bg-white;
+  @apply rounded-full bg-white
 }
 
 @media (min-width: 768px) {

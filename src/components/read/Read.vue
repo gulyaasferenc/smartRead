@@ -3,6 +3,7 @@
     <div
       class="bg-darkMountain content-shadow p-6 rounded overflow-auto my-8 xl:w-4/5 lg:w-4/5 md:w-4/5 mx-auto text-white text-left relative"
       style="max-height: 95%;"
+      v-if="content"
     >
       <arrow-left-icon
         size="1.8x"

@@ -12,7 +12,7 @@
           <want-to-check></want-to-check>
         </div>
          <div class="mycolumn xl:w-1/3 lg:w-1/3 md:w-1/3 ">
-          Some content
+            <span class="text-white">Statistics will be here</span>
         </div>
       </div>
     </div>
