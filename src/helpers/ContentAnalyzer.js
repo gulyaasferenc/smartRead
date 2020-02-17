@@ -22,22 +22,25 @@ export default {
         }
       }
     }
-    return { elements: finalElementsArray, images: finalImagesArray, date: new Date().toUTCString() }
+    return { elements: finalElementsArray, images: finalImagesArray, date: new Date() }
   },
   statisticMaker: function (doc, result) {
     const elements = [...doc.getElementsByTagName('*')]
-    console.log(elements)
     const finalTotal = []
     elements.filter(x => x.nodeName === 'H1' || x.nodeName === 'P' || x.nodeName === 'H2' || x.nodeName === 'H3').forEach(x => finalTotal.push(x.innerText.split(' ').length))
     let finalResult = []
     result.elements.forEach((x) => finalResult.push(x.text.split(' ').length))
     const totalWords = finalTotal.reduce((x, y) => x + y)
     const resultWords = finalResult.reduce((x, y) => x + y)
-    const savedTime = (totalWords / 220) - (resultWords / 220)
+    const totalTime = totalWords / 220
+    const resultTime = resultWords / 220
+    const savedTime = totalTime - resultTime
     return {
-      date: result.date,
+      date: result.date.valueOf(),
       totalWords,
       resultWords,
+      totalTime,
+      resultTime,
       savedTime
     }
   }

@@ -71,7 +71,7 @@ export default {
     async editItem () {
       console.log('HAHOOO')
       const content = await get(this.payload.uuid, this.smartStore)
-      this.setContent([content.text, [content.image]])
+      this.setContent({ elements: content.text, images: [content.images], selected: false, origin: content.origin, statistics: content.statistics })
       this.setGetContentStarted(false)
       this.setContentReceived(true)
     }

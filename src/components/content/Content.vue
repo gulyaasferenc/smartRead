@@ -52,7 +52,7 @@
               alt=""
             />
           </div>
-          <div v-for="(el, i) in content" :key="i">
+          <div v-for="(el, i) in content.elements" :key="i">
             <h1 class="text-2xl font-bold mb-2" v-if="el.type === 'maintitle'">
               <input type="checkbox" :value="el" v-model="stayedArray" />
               {{ el.text }}
@@ -108,17 +108,18 @@ export default {
   watch: {
     contentReceived () {
       if (this.contentReceived) {
-        this.stayedArray = this.content
+        this.stayedArray = this.content.elements
       }
     }
   },
   computed: {
     ...mapState({
-      content: state => state.content.elements,
+      content: state => state.content,
       images: state => state.content.images,
       contentReceived: state => state.contentReceived,
       getContentStarted: state => state.getContentStarted,
-      smartStore: state => state.smartStore
+      smartStore: state => state.smartStore,
+      smartStatStore: state => state.smartStatStore
     }),
     contentStyle () {
       let style = { opacity: '.5' }
@@ -134,7 +135,7 @@ export default {
   },
   methods: {
     ...mapMutations(['setContentReceived']),
-    ...mapActions(['getIdbContent']),
+    ...mapActions(['getIdbContent', 'getStatistics']),
     hideImageInfo () {
       this.showImageInfo = false
     },
@@ -151,9 +152,15 @@ export default {
       }
     },
     async save () {
+      if (this.stayedArray.length === 0) {
+        this.setContentReceived(false)
+        return
+      }
       const contentId = uuid()
-      set(contentId, { uuid: contentId, text: this.stayedArray, image: this.images[this.stayedImageEl], selected: false }, this.smartStore)
+      set(contentId, { uuid: contentId, text: this.stayedArray, images: this.images[this.stayedImageEl], selected: false, origin: this.content.origin, statistics: this.content.statistics }, this.smartStore)
+      set(this.content.statistics.date, this.content.statistics, this.smartStatStore)
       this.getIdbContent()
+      this.getStatistics()
       this.setContentReceived(false)
     }
   }

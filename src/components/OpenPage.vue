@@ -6,18 +6,18 @@
       </div>
       <div class="md:flex lg:flex xl:flex mx-2">
         <div class="mycolumn xl:w-1/3 lg:w-1/3 md:w-1/3 ">
-          <want-to-read class=""></want-to-read>
+          <want-to-read></want-to-read>
         </div>
         <div class="mycolumn xl:w-1/3 lg:w-1/3 md:w-1/3 ">
           <want-to-check></want-to-check>
         </div>
          <div class="mycolumn xl:w-1/3 lg:w-1/3 md:w-1/3 ">
-            <span class="text-white">Statistics will be here</span>
+            <Statistics />
         </div>
       </div>
     </div>
     <Content v-if="getContentStarted || contentReceived" />
-    <Modal v-if="getModal" :payload="toModal" />
+    <Modal v-if="getModal" />
   </div>
 </template>
 
@@ -26,6 +26,7 @@ import WantToRead from '@/components/wanttoread/WantToRead'
 import WantToCheck from '@/components/wanttocheck/WantToCheck'
 import Content from '@/components/content/Content'
 import Modal from '@/components/modal/Modal'
+import Statistics from '@/components/statistics/Statistics'
 import { mapState } from 'vuex'
 export default {
   name: 'OpenPage',
@@ -33,7 +34,8 @@ export default {
     WantToRead,
     Content,
     WantToCheck,
-    Modal
+    Modal,
+    Statistics
   },
   props: {
     msg: String
@@ -51,7 +53,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .mycolumn {
-    min-height: 80vh;
+    min-height: 79vh;
     box-shadow: 0px 10px 32px 5px rgba(0,0,0,1);
     @apply bg-darkMountain mx-2 rounded-lg p-4 my-2
   }

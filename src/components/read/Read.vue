@@ -1,8 +1,7 @@
 <template>
-  <div>
+  <div class="h-full">
     <div
-      class="bg-darkMountain content-shadow p-6 rounded overflow-auto my-8 xl:w-4/5 lg:w-4/5 md:w-4/5 mx-auto text-white text-left relative"
-      style="max-height: 95%;"
+      class="bg-darkMountain cust-height content-shadow p-6 rounded overflow-auto my-8 xl:w-4/5 lg:w-4/5 md:w-4/5 mx-auto text-white text-left relative"
       v-if="content"
     >
       <arrow-left-icon
@@ -10,6 +9,7 @@
         class="float-left absolute top-0 left-0 ml-2 mt-2 cursor-pointer"
         @click="back()"
       ></arrow-left-icon>
+      <p class="text-xs font-semibold text-right">(from {{content.origin}})</p>
       <div class="float-right maxiw h-auto p-4 mt-8">
         <img class="mx-auto" :src="img" alt="" />
       </div>
@@ -49,7 +49,7 @@ export default {
   },
   async created () {
     this.content = await get(this.$route.query.contentId, this.smartStore)
-    this.img = this.content.image.src
+    this.img = this.content.images.src
   },
   computed: {
     ...mapState({
@@ -67,5 +67,9 @@ export default {
 <style>
 .maxiw {
   max-width: 50%;
+}
+
+.cust-height {
+  height: 80vh;
 }
 </style>

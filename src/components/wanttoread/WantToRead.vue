@@ -1,8 +1,8 @@
 <template>
-  <div class="h-full">
-    <div class="py-10 rounded-lg cursor-pointer text-white h-full">
+  <div class="h-full p-4 text-white" >
+    <h1 class="text-xl py-2">I WANT to Read some news!!</h1>
+    <div class="rounded-lg text-white mt-10">
       <div class="my-auto ">
-        <h2 class="mb-4 text-xl">I WANT to Read some news!!</h2>
         <p class="my-4">Paste the link here:</p>
         <input
           class="bg-gray-800 border border-gray-600 hovershadow rounded w-4/5 my-auto"
@@ -30,7 +30,7 @@ export default {
   },
   data () {
     return {
-      linkText: ''
+      linkText: null
     }
   },
   computed: {},

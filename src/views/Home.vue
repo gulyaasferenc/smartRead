@@ -17,7 +17,9 @@ export default {
   },
   async created () {
     this.$store.commit('setSmartStore', await new Store('smartDB', 'smartStore'))
+    this.$store.commit('setsmartStatStore', await new Store('smartStatDB', 'smartStatStore'))
     this.$store.dispatch('getIdbContent')
+    this.$store.dispatch('getStatistics')
   },
   computed: {
     ...mapState({
