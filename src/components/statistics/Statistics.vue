@@ -17,8 +17,8 @@ export default {
   name: 'Statistics',
   data () {
     return {
-      compWidth: 300,
-      compHeight: 300,
+      compWidth: 10,
+      compHeight: 10,
       refWidth: 0,
       render: 0
     }
